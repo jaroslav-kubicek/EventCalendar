@@ -1,59 +1,54 @@
 <?php
 
+/**
+ * @copyright  Copyright (c) 2012 Jaroslav Kubíček
+ * @license    New BSD License
+ * @version    0.1 2012-08-18
+ */
+
 use \Nette\Application\UI;
 
 class EventCalendar extends UI\Control {
 
-    const FIRST_SUNDAY = 0, FIRST_MONDAY = 1, CZECH = "cz", ENGLISH = "en";
+    const FIRST_SUNDAY = 0, FIRST_MONDAY = 1, CZECH = 'cz', ENGLISH = 'en';
 
     /**
-     *
      * @var int
      * @persistent 
      */
     public $year = NULL;
 
     /**
-     *
      * @var int
      * @persistent
      */
     public $month = NULL;
 
     /**
-     *
-     * @var array info o aktuálním měsíci
-     */
-    private $dateInfo = array();
-
-    /**
-     *
      * @var int jakým dnem začíná týden
      */
     private $mode = self::FIRST_SUNDAY;
 
     /**
-     *
      * @var string jazyk kalendáře
      */
     private $language = self::ENGLISH;
 
     /**
-     * pole různých dalších nastavení kalendáře
-     * @var array 
+     * @var array pole různých dalších nastavení kalendáře
      */
     private $options = array(
-        "showTopNav" => TRUE,
-        "showBottomNav" => TRUE,
-        "topNavPrev" => "<<",
-        "topNavNext" => ">>",
-        "bottomNavPrev" => "Previous month",
-        "bottomNavNext" => "Next month"
+        'showTopNav' => TRUE,
+        'showBottomNav' => TRUE,
+        'topNavPrev' => '<<',
+        'topNavNext' => '>>',
+        'bottomNavPrev' => 'Previous month',
+        'bottomNavNext' => 'Next month'
     );
 
     /**
      * vlastní názvy dní a měsíců
-     * @var type 
+     * @var array
      */
     private $localNames = NULL;
 
@@ -106,7 +101,7 @@ class EventCalendar extends UI\Control {
      * @param array $localNames
      * @throws InvalidArgumentException 
      */
-    public function setLocalNames($localNames) {
+    public function setLocalNames(array $localNames) {
         if (isset($localNames["monthNames"]) && isset($localNames["wdays"]) && count($localNames["monthNames"]) == 12 && count($localNames["wdays"]) == 7) {
             $this->localNames = $localNames;
         } else {
@@ -139,10 +134,12 @@ class EventCalendar extends UI\Control {
             $date = getdate($dateTime->getTimestamp());
         }
 
-        $this->dateInfo["year"] = $date["year"]; // aktuální rok
-        $this->dateInfo["month"] = $date["mon"]; // aktuální měsíc
-        $this->dateInfo["noOfDays"] = cal_days_in_month(CAL_GREGORIAN, $date["mon"], $date["year"]); // počet dnů v měsíci
-        $this->dateInfo["firstDayInMonth"] = $this->getFirstDayInMonth($date['year'], $date['mon']); // první den měsíce
+        $dateInfo = array();
+        $dateInfo["year"] = $date["year"]; // aktuální rok
+        $dateInfo["month"] = $date["mon"]; // aktuální měsíc
+        $dateInfo["noOfDays"] = cal_days_in_month(CAL_GREGORIAN, $date["mon"], $date["year"]); // počet dnů v měsíci
+        $dateInfo["firstDayInMonth"] = $this->getFirstDayInMonth($date['year'], $date['mon']); // první den měsíce
+
         // jaké názvy měsíců použijeme?
         if ($this->localNames != NULL) {
             $names = $this->localNames;
@@ -150,7 +147,7 @@ class EventCalendar extends UI\Control {
             $names = $this->getNames();
         }
 
-        $this->template->dateInfo = $this->dateInfo;
+        $this->template->dateInfo = $dateInfo;
         $this->template->next = $this->getNextMonth($date["year"], $date['mon']);
         $this->template->prev = $this->getPrevMonth($date["year"], $date['mon']);
         $this->template->names = $names;
@@ -160,6 +157,7 @@ class EventCalendar extends UI\Control {
         $this->template->render();
     }
 
+    /** změní aktuálně zobrazený měsíc */
     public function handleChangeMonth() {
         if ($this->presenter->isAjax()) {
             $this->invalidateControl("ecCalendar");
