@@ -130,7 +130,7 @@ class EventCalendar extends UI\Control {
         if ($this->month == NULL || $this->year == NULL) {
             $date = getdate();
         } else {
-            $dateTime = DateTime::createFromFormat('Y-m', $this->year . '-' . $this->month);
+            $dateTime = DateTime::createFromFormat('Y-m-d', $this->year . '-' . $this->month.'-1');
             $date = getdate($dateTime->getTimestamp());
         }
 
