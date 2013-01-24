@@ -1,0 +1,18 @@
+common:
+    parameters:
+        database:
+            driver: mysql
+            host: localhost
+            dbname: abc
+            user: abc
+            password: passw
+    services:
+        database:
+            class: Nette\Database\Connection(
+            '%database.driver%:host=%database.host%;dbname=%database.dbname%',
+            %database.user%, %database.password%)
+
+production < common:
+
+
+development < common:

@@ -79,6 +79,7 @@ body {
 .ec-eventBox {
     display: none;
     position: absolute;
+    z-index: 999;
     background-color: rgba(50, 138, 220, 0.8);
     padding: 10px;
     min-width: 120px;
