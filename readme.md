@@ -13,3 +13,4 @@ DEMO - SETUP
 
 1. configure config/config.neon for your database
 2. import events.sql with table where you can find basic data for calendar
+3. install Nette framework to libs
