@@ -21,14 +21,14 @@ class HomepagePresenter extends Nette\Application\UI\Presenter {
         $encal->setEvents(new EventModel());
 
         $spaincal = new EventCalendar($this, "spainCalendar");
-        $spaincal->setEvents(new EventModel());
+        //$spaincal->setEvents(new EventModel());
         $spaincal->setMode(EventCalendar::FIRST_MONDAY);
         $spaincal->setLocalNames(array(
-            "monthNames" => array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"),
+            "monthNames" => array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"),
             "wdays" => array("Lu", "Ma", "Mi", "Ju", "Vi", "Sá", "Do")
         ));
         $spaincal->setOptions(array("showBottomNav" => FALSE));
-        
+
         $customCal = new CustomCalendar($this,'customCal');
         $customCal->setEvents(new ExtendedEventModel($this->connection));
     }
