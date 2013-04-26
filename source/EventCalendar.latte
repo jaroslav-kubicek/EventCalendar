@@ -15,7 +15,7 @@
     {for $j = 1; $j <= 7; $j++}
         {var $dayNum = $j + $i*7 - $dateInfo['firstDayInMonth']}
         {if $dayNum > 0 && $dayNum <= $dateInfo['noOfDays']}
-            {if $events->isForDate($dateInfo["year"],$dateInfo["month"],$dayNum)}
+            {if $events && $events->isForDate($dateInfo["year"],$dateInfo["month"],$dayNum)}
             <td class="ec-validDay ec-eventDay">
                 <div class="ec-dayOfEvents">{$dayNum}</div>
                 <div class="ec-eventBox">
