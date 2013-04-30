@@ -1,1 +1,0 @@
-[2013-01-23 23-19-55] Fatal error: Undefined index: 12 in /var/www/EventCalendar/demo/temp/cache/_Nette.FileTemplate/_components.EventCalendar.latte-a5ad4df6b001c6d4d701cbc2617db8ec.php:20  @  http://localhost/EventCalendar/demo/www/?spainCalendar-year=2012&spainCalendar-month=12&do=spainCalendar-changeMonth  @@  exception-2013-01-23-23-19-55-b4300e55c58e8200798cd2f304791578.html
