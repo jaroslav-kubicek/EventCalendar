@@ -1,0 +1,88 @@
+en:
+    wdays:
+        - Sunday
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+    monthNames:
+        - January
+        - February
+        - March
+        - April
+        - May
+        - June
+        - July
+        - August
+        - September
+        - October
+        - November
+        - December
+cz:
+    wdays:
+        - Neděle
+        - Pondělí
+        - Úterý
+        - Středa
+        - Čtvrtek
+        - Pátek
+        - Sobota
+    monthNames:
+        - Leden
+        - Únor
+        - Březen
+        - Duben
+        - Květen
+        - Červen
+        - Červenec
+        - Srpen
+        - Září
+        - Říjen
+        - Listopad
+        - Prosinec
+sk:
+    wdays:
+        - Nedeľa
+        - Pondelok
+        - Utorok
+        - Streda
+        - Štvrtok
+        - Piatok
+        - Sobota
+    monthNames:
+        - Január
+        - Február
+        - Marec
+        - Apríl
+        - Máj
+        - Jún
+        - Jul
+        - August
+        - September
+        - Október
+        - November
+        - December
+de:
+    wdays:
+        - Sonntag
+        - Montag
+        - Dienstag
+        - Mittwoch
+        - Donnerstag
+        - Freitag
+        - Samstag
+    monthNames:
+        - Januar
+        - Februar
+        - März
+        - April
+        - Mai
+        - Juni
+        - Juli
+        - August
+        - September
+        - Oktober
+        - November
+        - Dezember
