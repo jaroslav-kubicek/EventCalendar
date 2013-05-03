@@ -1,7 +1,7 @@
 EventCalendar
 ============
 
-- add-on component for Nette framework - http://nette.org/cs/
+- add-on component for Nette framework - http://nette.org/
 - enable displaying various events in calendar
 - provide methods for localisation & customization
 - you can also use html and Texy! in your event texts
