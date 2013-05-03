@@ -29,19 +29,6 @@ abstract class AbstractCalendar extends UI\Control
     protected $firstDay = self::FIRST_SUNDAY;
 
     /**
-     * @var array with options for calendar - you can change defauls by setOptions()
-     */
-    protected $options = array(
-        'showTopNav' => TRUE,
-        'showBottomNav' => TRUE,
-        'topNavPrev' => '<<',
-        'topNavNext' => '>>',
-        'bottomNavPrev' => 'Previous month',
-        'bottomNavNext' => 'Next month',
-        'wdayMaxLen' => null
-    );
-
-    /**
      * Model which implements ICalendarEvent
      * @var ICalendarEvent 
      */
@@ -49,15 +36,19 @@ abstract class AbstractCalendar extends UI\Control
 
     abstract protected function getTemplateFile();
 
+    /**
+     * Specify the date on which the week starts
+     * @param int $day
+     */
     public function setFirstDay($day)
     {
         $this->firstDay = $day;
     }
 
     /**
-     * Changes default options
+     * Changes default options, see OPT constants for currently supported options for each type of calendar
      * 
-     * @param array $options
+     * @param array $options array of options
      */
     public function setOptions(array $options)
     {
@@ -71,7 +62,7 @@ abstract class AbstractCalendar extends UI\Control
         $this->events = $events;
     }
 
-    /** change current month */
+    /** changes current month and invokes onDateChange event */
     public function handleChangeMonth()
     {
         $this->onDateChange($this->year, $this->month);

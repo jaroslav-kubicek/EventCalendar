@@ -35,7 +35,7 @@ class EventCalendarTest extends Tester\TestCase
     public function testMaxLenOfWday()
     {
         $this->calendar->setFirstDay(EventCalendar::FIRST_MONDAY);
-        $this->calendar->setOptions(array('wdayMaxLen' => 3));
+        $this->calendar->setOptions(array(EventCalendar::OPT_WDAY_MAX_LEN => 3));
         $html = $this->addToPresenterAndReturnHtml($this->calendar);
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
@@ -45,7 +45,7 @@ class EventCalendarTest extends Tester\TestCase
 
     public function testDisabledTopNav()
     {
-        $this->calendar->setOptions(array('showTopNav' => false));
+        $this->calendar->setOptions(array(EventCalendar::OPT_SHOW_TOP_NAV => false));
         $html = $this->addToPresenterAndReturnHtml($this->calendar);
         $dom = DomQuery::fromHtml($html);
         Assert::true(!$dom->has('.ec-monthTable a'));

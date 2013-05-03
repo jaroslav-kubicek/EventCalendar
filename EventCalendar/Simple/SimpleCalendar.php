@@ -5,21 +5,55 @@ namespace EventCalendar\Simple;
 use \EventCalendar\AbstractCalendar;
 use \Nette\Utils\Neon;
 
+/**
+ * Simple alternative for calendar control if you don't want to use translator.
+ * 
+ * Specify your language by calling setLanguage($lang)
+ */
 class SimpleCalendar extends AbstractCalendar
 {
 
     const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';
+    
+    /**
+     * Show top navigation for changing months, default <b>true</b>
+     */
+    const OPT_SHOW_TOP_NAV = 'showTopNav';
+    /**
+     * Show bottom navigation for changing months, default <b>true</b>
+     */
+    const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
+    /**
+     * text for top link to previous month, default <b><</b>
+     */
+    const OPT_TOP_NAV_PREV = 'topNavPrev';
+    /**
+     * text for top link to next month, default <b>></b>
+     */
+    const OPT_TOP_NAV_NEXT = 'topNavNext';
+    /**
+     * text for bottom link to previous month, default <b>Previous month</b>
+     */
+    const OPT_BOTTOM_NAV_PREV = 'bottomNavPrev';
+    /**
+     * text for bottom link to next month, default <b>Next month</b>
+     */
+    const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
+    /**
+     * maximum length of wday names, by default, full name is used (<b>null</b>)
+     */
+    const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     protected $language = self::LANG_EN;
 
     /**
-     * @var array with options for calendar - you can change defauls by setOptions()
+     * @var array default options for calendar - you can change defauls by setOptions()
      */
     protected $options = array(
         'showTopNav' => TRUE,
         'showBottomNav' => TRUE,
-        'topNavPrev' => '<<',
-        'topNavNext' => '>>',
+        'topNavPrev' => '<',
+        'topNavNext' => '>',
         'bottomNavPrev' => 'Previous month',
         'bottomNavNext' => 'Next month',
         'wdayMaxLen' => null

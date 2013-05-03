@@ -2,11 +2,30 @@
 
 namespace EventCalendar\Simple;
 
+/**
+ * Calendar control with the need to define a translator
+ * 
+ * Also, you can use Texy! syntax in your events, just install Texy! into your project and use it.
+ * 
+ */
 class EventCalendar extends \EventCalendar\AbstractCalendar
 {
+    /**
+     * Show top navigation for changing months, default <b>true</b>
+     */
+
+    const OPT_SHOW_TOP_NAV = 'showTopNav';
+    /**
+     * Show bottom navigation for changing months, default <b>true</b>
+     */
+    const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
+    /**
+     * maximum length of wday names, by default, full name is used (<b>null</b>)
+     */
+    const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     /**
-     * @var array with options for calendar - you can change defauls by setOptions()
+     * @var array default options for calendar - you can change defauls by setOptions()
      */
     protected $options = array(
         'showTopNav' => TRUE,
@@ -19,6 +38,10 @@ class EventCalendar extends \EventCalendar\AbstractCalendar
      */
     private $translator;
 
+    /**
+     * set translator for calendar control
+     * @param \Nette\Localization\ITranslator $translator
+     */
     public function setTranslator(\Nette\Localization\ITranslator $translator)
     {
         $this->translator = $translator;
