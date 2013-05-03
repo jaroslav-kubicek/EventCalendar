@@ -3,6 +3,7 @@
 namespace EventCalendar;
 
 use \Nette\Application\UI;
+use \EventCalendar\IEventModel;
 
 abstract class AbstractCalendar extends UI\Control
 {
@@ -57,7 +58,7 @@ abstract class AbstractCalendar extends UI\Control
         }
     }
 
-    public function setEvents(\IEventModel $events)
+    public function setEvents(IEventModel $events)
     {
         $this->events = $events;
     }

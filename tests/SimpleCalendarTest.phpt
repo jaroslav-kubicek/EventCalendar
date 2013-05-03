@@ -2,6 +2,7 @@
 
 $configurator = require __DIR__ . '/bootstrap.php';
 
+use EventCalendar\IEventModel;
 use EventCalendar\Simple\SimpleCalendar;
 use Nette\Application\Request;
 use Tester\DomQuery;
