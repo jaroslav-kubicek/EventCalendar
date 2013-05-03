@@ -2,7 +2,7 @@
     <table class="ec-monthTable">
         <caption>
         {if $options["showTopNav"]==TRUE}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{$options["topNavPrev"]}</a>{/if}
-        {$names["monthNames"][$dateInfo["month"]-1]} {$dateInfo["year"]}
+        <span class="ec-month">{$names["monthNames"][$dateInfo["month"]-1]}</span><span class="ec-year">{$dateInfo["year"]}</span>
         {if $options["showTopNav"]==TRUE}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{$options["topNavNext"]}</a>{/if}
         </caption>
         <tr>

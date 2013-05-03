@@ -6,6 +6,15 @@ class EventCalendar extends \EventCalendar\AbstractCalendar
 {
 
     /**
+     * @var array with options for calendar - you can change defauls by setOptions()
+     */
+    protected $options = array(
+        'showTopNav' => TRUE,
+        'showBottomNav' => TRUE,
+        'wdayMaxLen' => null
+    );
+
+    /**
      * @var \Nette\Localization\ITranslator
      */
     private $translator;

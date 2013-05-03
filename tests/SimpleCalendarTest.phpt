@@ -164,4 +164,5 @@ class TestEvent implements IEventModel
 
 }
 
-(new SimpleCalendarTest())->run();
+$testCase = new SimpleCalendarTest();
+$testCase->run();

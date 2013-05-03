@@ -12,6 +12,19 @@ class SimpleCalendar extends AbstractCalendar
 
     protected $language = self::LANG_EN;
 
+    /**
+     * @var array with options for calendar - you can change defauls by setOptions()
+     */
+    protected $options = array(
+        'showTopNav' => TRUE,
+        'showBottomNav' => TRUE,
+        'topNavPrev' => '<<',
+        'topNavNext' => '>>',
+        'bottomNavPrev' => 'Previous month',
+        'bottomNavNext' => 'Next month',
+        'wdayMaxLen' => null
+    );
+
     public function setLanguage($lang)
     {
         $this->language = $lang;
