@@ -14,7 +14,7 @@ Install component to your project via Composer:
 
     "require": {
         ...
-        "jaroslav-kubicek/event-calendar": "0.2.0"
+        "jaroslav-kubicek/event-calendar": "0.2.1"
     }
 
 Quick start
