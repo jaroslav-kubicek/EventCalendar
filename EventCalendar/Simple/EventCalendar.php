@@ -2,8 +2,6 @@
 
 namespace EventCalendar\Simple;
 
-use \Nette\Application\UI;
-
 class EventCalendar extends \EventCalendar\AbstractCalendar
 {
 
