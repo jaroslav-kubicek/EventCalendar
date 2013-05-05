@@ -3,7 +3,7 @@
 
 namespace EventCalendar;
 /**
- * <i>Tip:</i> For max performace you can load events only for current month. If user change month, handle this by event onDateChange.
+ * <i>Tip:</i> For max performace, in your implementation of this interface you can load events only for current month. If user change month, handle this by event onDateChange.
  */
 interface IEventModel
 {
@@ -15,7 +15,7 @@ interface IEventModel
     public function isForDate($year, $month, $day);
 
     /**
-     * return array with events - output is NOT escaped (you can use html)
+     * return array with events
      * @return array
      */
     public function getForDate($year, $month, $day);
