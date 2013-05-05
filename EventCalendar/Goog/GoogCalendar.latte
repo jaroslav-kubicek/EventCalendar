@@ -1,0 +1,50 @@
+<div class="eventCalendar" n:snippet="ecCalendar">
+    <table class="ec-monthTable">
+        <caption>
+        {if $options["showTopNav"]==TRUE}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_}<{/_}</a>{/if}
+        <span class="ec-month">{_$monthNames[$dateInfo["month"]-1]}</span><span class="ec-year">{$dateInfo["year"]}</span>
+        {if $options["showTopNav"]==TRUE}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_}>{/_}</a>{/if}
+        </caption>
+        <tr>
+{for $i = 0; $i < 7; $i++} 
+            <th>{_$wdays[$i]}</th>  
+{/for}
+        </tr>
+{for $i = 0; $i < 6; $i++}
+        <tr>
+    {for $j = 1; $j <= 7; $j++}
+        {var $dayNum = $j + $i*7 - $dateInfo['firstDayInMonth']}
+        {if $dayNum > 0 && $dayNum <= $dateInfo['noOfDays']}
+            {if $events && $events->isForDate($dateInfo["year"],$dateInfo["month"],$dayNum)}
+            <td class="ec-validDay ec-eventDay">
+                <div class="ec-dayOfEvents">{$dayNum}</div>
+                <div class="ec-eventBox">
+                    {foreach $events->getForDate($dateInfo["year"],$dateInfo["month"],$dayNum) as $event}
+                    <div class="ec-event" data-status="{$event->status}">
+                        <span class="ec-event-summary">{$event->summary}</span>
+                        {if $options['showEventLink']}<a href="{$event->htmlLink}" class="ec-event-link">{_}link{/_}</a>{/if}
+                        {if $options['showEventLocation']}<span class="ec-event-location">{$event->location}</span>{/if}
+                        {if $options['showEventStart']}<span class="ec-event-start">{$event->start|date:$options['eventDateformat']}</span>{/if}
+                        {if $options['showEventEnd']}<span class="ec-event-end">{$event->end|date:$options['eventDateformat']}</span>{/if}
+                    </div>
+                    {/foreach}
+                </div>
+            </td>
+            {else}
+            <td class="ec-validDay">{$dayNum}</td>
+            {/if}
+        {else}
+            <td class="ec-empty"></td>
+        {/if}
+    {/for}
+        </tr>
+    {breakIf ($dayNum >= $dateInfo['noOfDays'] && $i != 6)}
+{/for}
+    </table>
+{if $options["showBottomNav"]==TRUE}
+    <div class="ec-bottomNavigation">
+        <a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_}Previous month{/_}</a>
+        <a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_}Next month{/_}</a>
+    </div>
+{/if}
+</div>
