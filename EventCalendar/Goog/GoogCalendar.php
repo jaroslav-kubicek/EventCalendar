@@ -9,7 +9,7 @@ use EventCalendar\BasicCalendar;
  * 
  * Experimental
  * 
- * TODO: allow mix of events from Google Calendar with custom events
+ * @todo Allow mix of events from Google Calendar with custom events
  */
 class GoogCalendar extends BasicCalendar
 {
