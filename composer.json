@@ -1,0 +1,14 @@
+{
+    
+    "name" : "jaroslav-kubicek/eventcalendardemo",
+    "config": {
+        "vendor-dir": "libs"
+    },
+    "require": {
+        "jaroslav-kubicek/event-calendar": "v0.2.2"
+    },
+    "require-dev": {
+        "nette/tester": "@dev"
+    }
+    
+}
