@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Event Calendar</title>
+        <link href="{$baseUrl}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="{$baseUrl}/css/bootstrap.min.responsive.css" rel="stylesheet" type="text/css">
+        <link href="{$baseUrl}/css/eventCalendar.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        {* menu *}
+        <div class="navbar navbar-static-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container" style="width: auto; padding: 0 20px;">
+                    <a class="brand" href="{$baseUrl}">EventCalendar - demo</a>
+                    <ul class="nav">
+                        <li class="{ifCurrent Event:default, calendar=>'basic'}active{/ifCurrent}">
+                            <a n:href="Event:default, calendar=>'basic'">Basic</a>
+                        </li>
+                        <li class="{ifCurrent Event:default, calendar=>'czech'}active{/ifCurrent}">
+                            <a n:href="Event:default, calendar=>'czech'">Czech calendar</a>
+                        </li>
+                        <li class="{ifCurrent Event:default, calendar=>'translator'}active{/ifCurrent}">
+                            <a n:href="Event:default, calendar=>'translator'">Calendar with translator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1>EventCalendar</h1>
+                    <p class="lead">Check ApiDoc at <a href="http://www.nimral.cz/calendar/docs/index.html">Nimral</a> for more info & check how it works.</p>
+                    <blockquote>
+                        <p>“Don't spend time beating on a wall, hoping to transform it into a door. ”</p>
+                        <small>Coco Chanel & all Nette programmers</small>
+                    </blockquote>
+                {* comments *}
+
+                {* calendar *}
+                {include #content}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

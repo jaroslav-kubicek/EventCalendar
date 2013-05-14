@@ -1,0 +1,18 @@
+common:
+    parameters:
+        database:
+            driver: mysql # yeah, that buggy thing what looks like a database
+            host: localhost
+            dbname: eventCalendar_demo0_2
+            user: superroot
+            password: 1234supersecret
+    services:
+        database:
+            class: Nette\Database\Connection(
+            '%database.driver%:host=%database.host%;dbname=%database.dbname%',
+            %database.user%, %database.password%)
+
+production < common:
+
+
+development < common:

@@ -1,11 +1,14 @@
 {
     
-    "name" : "jaroslav-kubicek/eventcalendardemo",
+    "name" : "jaroslav-kubicek/eventcalendar_demo_0_2",
+    "description" : "Demo of EventCalendar component for Nette apps",
+    "license":"BSD-4-Clause",
     "config": {
         "vendor-dir": "libs"
     },
     "require": {
-        "jaroslav-kubicek/event-calendar": "v0.2.2"
+        "jaroslav-kubicek/event-calendar": "v0.2.2",
+        "dg/texy": "v2.2.0"
     },
     "require-dev": {
         "nette/tester": "@dev"

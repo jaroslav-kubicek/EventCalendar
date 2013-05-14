@@ -1,0 +1,9 @@
+libs/*
+log/*
+temp/*
+app/config/*
+
+!libs/.htaccess
+!log/.htaccess
+!temp/.htaccess
+!app/config/config.sample.neon
