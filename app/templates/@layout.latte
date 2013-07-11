@@ -5,8 +5,15 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Event Calendar</title>
         <link href="{$baseUrl}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="{$baseUrl}/css/bootstrap.min.responsive.css" rel="stylesheet" type="text/css">
+        <link href="{$baseUrl}/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <link href="{$baseUrl}/css/eventCalendar.css" rel="stylesheet" type="text/css">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="{$baseUrl}/js/ajax.js"></script>
+        <script>
+            $(function () {
+                $.nette.init();
+            });
+        </script>
     </head>
     <body>
         {* menu *}
@@ -15,14 +22,14 @@
                 <div class="container" style="width: auto; padding: 0 20px;">
                     <a class="brand" href="{$baseUrl}">EventCalendar - demo</a>
                     <ul class="nav">
-                        <li class="{ifCurrent Event:default, calendar=>'basic'}active{/ifCurrent}">
-                            <a n:href="Event:default, calendar=>'basic'">Basic</a>
+                        <li n:class="$presenter->isLinkCurrent('this', array(calendar=>'basic')) ? active">
+                            <a n:href="this, calendar=>'basic'">Basic</a>
                         </li>
-                        <li class="{ifCurrent Event:default, calendar=>'czech'}active{/ifCurrent}">
-                            <a n:href="Event:default, calendar=>'czech'">Czech calendar</a>
+                        <li n:class="$presenter->isLinkCurrent('this', array(calendar=>'czech')) ? active">
+                            <a n:href="this, calendar=>'czech'">Czech calendar</a>
                         </li>
-                        <li class="{ifCurrent Event:default, calendar=>'translator'}active{/ifCurrent}">
-                            <a n:href="Event:default, calendar=>'translator'">Calendar with translator</a>
+                        <li n:class="$presenter->isLinkCurrent('this', array(calendar=>'translator')) ? active">
+                            <a n:href="this, calendar=>'translator'">Calendar with translator</a>
                         </li>
                     </ul>
                 </div>

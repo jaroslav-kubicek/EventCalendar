@@ -7,7 +7,7 @@ class Translator extends Nette\Object implements Nette\Localization\ITranslator
 {
 
     /**
-     * @var Connection 
+     * @var Connection
      */
     private $connection;
 
@@ -22,7 +22,7 @@ class Translator extends Nette\Object implements Nette\Localization\ITranslator
         $this->connection = $connection;
         $this->cache = $cache;
     }
-    
+
     public function setLang($lang)
     {
         $this->lang = $lang;
