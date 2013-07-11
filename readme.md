@@ -5,8 +5,8 @@ How to setup demo
 
 2. In project directory:
 
-- git checkout demo0.2
-- run 'composer install'
+    - git checkout demo0.2
+    - run 'composer install'
 
 3. create config.neon in app/config based on config.sample.neon and setup connection to your db
 
